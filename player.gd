@@ -7,6 +7,7 @@ extends CharacterBody3D
 ## CONSTANTS
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 15.0
+const INERTIA_COEF = 7.0
 const SENSITIVITY = 0.003
 const MAX_STAMINA = 100
 const REGEN_TIME = 1.5
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+		velocity.x = lerp(velocity.x, direction.x * speed, delta * INERTIA_COEF)
+		velocity.z = lerp(velocity.z, direction.z * speed, delta * INERTIA_COEF)
 
 	move_and_slide()
