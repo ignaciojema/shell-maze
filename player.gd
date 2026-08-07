@@ -19,12 +19,13 @@ var can_regen := false
 var depleting_speed := 10.0
 var recovering_speed := 10.0
 
-## FUNCTIONS
+## METHODS
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	# Hide mouse
 
 
+# Handle camera rotation
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -33,8 +34,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	print(stamina)
-
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -46,8 +45,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed = WALK_SPEED
 
-	# Handle stamina
-	if can_regen == true:
+	# Regen stamina
+	if can_regen:
 		stamina += recovering_speed * delta
 
 	# Get the input direction and handle the movement/deceleration.
@@ -55,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	# Check movement
+	# Check movement to reset timer
 	if input_dir != Vector2.ZERO:
 		print("Moving")
 		timer.start()
@@ -73,6 +72,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+# Handle stamina regen cooldown
 func _on_timer_timeout() -> void:
 	can_regen = true
 	print("Can regen")
