@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dlm0is3808goy"]
+
+[ext_resource type="Script" uid="uid://dpkug7fn3m4pt" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jiulq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xm2m"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2147040961]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1647590996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_jiulq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1310531596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_0xm2m")
+
+[node name="Head" type="Node3D" parent="." unique_id=1042936330]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1254559527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4190902, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1834303367]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

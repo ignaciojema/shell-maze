@@ -56,7 +56,6 @@ func _physics_process(delta: float) -> void:
 
 	# Check movement to reset timer
 	if input_dir != Vector2.ZERO:
-		print("Moving")
 		timer.start()
 		can_regen = false
 
@@ -75,4 +74,3 @@ func _physics_process(delta: float) -> void:
 # Handle stamina regen cooldown
 func _on_timer_timeout() -> void:
 	can_regen = true
-	print("Can regen")

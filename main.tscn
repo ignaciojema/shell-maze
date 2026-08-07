@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://0rax6yrlemlh"]
 
-[ext_resource type="Script" uid="uid://dpkug7fn3m4pt" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://np7tbwk6sfh4" path="res://shell.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://rcxuyc7a1n7i" path="res://score.gd" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,17 +22,13 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_jiulq"]
 size = Vector3(60, 2, 60)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jiulq"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xm2m"]
-
 [node name="Main" type="Node" unique_id=1663357308]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1643465840]
 environment = SubResource("Environment_h2yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2101334052]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, 0, 17, 17)
 shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=2098486934]
@@ -44,24 +42,12 @@ debug_color = Color(0.43813464, 0.48182738, 0.92762905, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_jiulq")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=940207474]
-script = ExtResource("1_ig7tw")
+[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("1_0xm2m")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=705226629]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_jiulq")
+[node name="Shell" parent="." unique_id=1669908532 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1398142102]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_0xm2m")
-
-[node name="Head" type="Node3D" parent="Player" unique_id=162405672]
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=1580519594]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4190902, 0)
-
-[node name="Timer" type="Timer" parent="Player" unique_id=1029087782]
-wait_time = 1.5
-autostart = true
-
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[node name="Score" type="Label" parent="." unique_id=1173282874]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_h2yge")
