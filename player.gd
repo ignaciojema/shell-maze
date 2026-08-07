@@ -13,16 +13,20 @@ const SENSITIVITY = 0.003
 const MAX_STAMINA = 100.0
 
 ## VARIABLES
-var speed = WALK_SPEED
+var speed := WALK_SPEED
 var stamina := MAX_STAMINA
 var can_regen := false
 var depleting_speed := 10.0
 var recovering_speed := 10.0
+var score := 0
 
 ## METHODS
-
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	# Hide mouse
+
+
+func inc_score():
+	score += 1
 
 
 # Handle camera rotation

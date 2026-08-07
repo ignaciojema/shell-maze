@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://0rax6yrlemlh"]
+
+[ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://np7tbwk6sfh4" path="res://shell.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://rcxuyc7a1n7i" path="res://score.gd" id="3_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jiulq"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jiulq"]
+size = Vector3(60, 2, 60)
+
+[node name="Main" type="Node" unique_id=1663357308]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1643465840]
+environment = SubResource("Environment_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2101334052]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, 0, 17, 17)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2098486934]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1515619664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_jiulq")
+debug_color = Color(0.43813464, 0.48182738, 0.92762905, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1653032854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_jiulq")
+
+[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("1_0xm2m")]
+
+[node name="Shell" parent="." unique_id=1669908532 groups=["player"] instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
+
+[node name="Score" type="Label" parent="." unique_id=1173282874]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_h2yge")
