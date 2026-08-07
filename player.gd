@@ -16,11 +16,13 @@ const REGEN_TIME = 1.5
 var speed = WALK_SPEED
 var stamina := MAX_STAMINA
 var can_regen := false
+var depleting_speed := 10
 
 ## FUNCTIONS
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -28,14 +30,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
+
 func _physics_process(delta: float) -> void:
+	print(stamina)
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle spint
-	if Input.is_action_pressed("sprint"):
+	# Handle sprint
+	if Input.is_action_pressed("sprint") && stamina > 0:
 		speed = SPRINT_SPEED
+		stamina -= depleting_speed * delta
 	else:
 		speed = WALK_SPEED
 
