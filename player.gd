@@ -13,6 +13,7 @@ const SENSITIVITY = 0.003
 const MAX_STAMINA = 100.0
 
 ## VARIABLES
+var alive := true
 var speed := WALK_SPEED
 var stamina := MAX_STAMINA
 var can_regen := false

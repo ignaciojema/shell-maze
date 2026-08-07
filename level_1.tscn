@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://0rax6yrlemlh"]
+[gd_scene format=3 uid="uid://bc0i36gjfa62t"]
 
-[ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://np7tbwk6sfh4" path="res://shell.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://rcxuyc7a1n7i" path="res://score.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="1_hn12h"]
+[ext_resource type="PackedScene" uid="uid://np7tbwk6sfh4" path="res://shell.tscn" id="2_ihfcg"]
+[ext_resource type="Script" uid="uid://rcxuyc7a1n7i" path="res://score.gd" id="3_rka8t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -24,7 +24,7 @@ size = Vector3(60, 2, 60)
 
 [sub_resource type="Theme" id="Theme_h2yge"]
 
-[node name="Main" type="Node" unique_id=1663357308]
+[node name="Level 1" type="Node" unique_id=1663357308]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1643465840]
 environment = SubResource("Environment_h2yge")
@@ -44,9 +44,9 @@ debug_color = Color(0.43813464, 0.48182738, 0.92762905, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_jiulq")
 
-[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("1_0xm2m")]
+[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("1_hn12h")]
 
-[node name="Shell" parent="." unique_id=1669908532 instance=ExtResource("2_0xm2m")]
+[node name="Shell" parent="." unique_id=1669908532 instance=ExtResource("2_ihfcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
 [node name="UserInterface" type="Control" parent="." unique_id=1355068312]
@@ -64,4 +64,4 @@ offset_right = 117.0
 offset_bottom = 81.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Score: 0"
-script = ExtResource("3_h2yge")
+script = ExtResource("3_rka8t")
