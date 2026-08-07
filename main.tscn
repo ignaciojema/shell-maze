@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://0rax6yrlemlh"]
 
 [ext_resource type="Script" uid="uid://dpkug7fn3m4pt" path="res://player.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://cf4r83h5tas1b" path="res://camera_3d.gd" id="2_0xm2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -56,8 +55,7 @@ mesh = SubResource("CapsuleMesh_jiulq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_0xm2m")
 
-[node name="Node3D" type="Node3D" parent="Player" unique_id=162405672]
+[node name="Head" type="Node3D" parent="Player" unique_id=162405672]
 
-[node name="Camera3D" type="Camera3D" parent="Player/Node3D" unique_id=1580519594]
+[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=1580519594]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4190902, 0)
-script = ExtResource("2_0xm2m")
