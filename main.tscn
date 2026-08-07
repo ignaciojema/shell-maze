@@ -22,6 +22,8 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_jiulq"]
 size = Vector3(60, 2, 60)
 
+[sub_resource type="Theme" id="Theme_h2yge"]
+
 [node name="Main" type="Node" unique_id=1663357308]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1643465840]
@@ -47,7 +49,19 @@ mesh = SubResource("BoxMesh_jiulq")
 [node name="Shell" parent="." unique_id=1669908532 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
-[node name="Score" type="Label" parent="." unique_id=1173282874]
+[node name="UserInterface" type="Control" parent="." unique_id=1355068312]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+theme = SubResource("Theme_h2yge")
+
+[node name="Score" type="Label" parent="UserInterface" unique_id=1173282874]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 58.0
+offset_right = 117.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
 script = ExtResource("3_h2yge")
