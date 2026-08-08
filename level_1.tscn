@@ -28,6 +28,12 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_jiulq"]
 size = Vector3(60, 2, 60)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrxph"]
+size = Vector3(8, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cxohp"]
+size = Vector3(8, 3, 1)
+
 [sub_resource type="Theme" id="Theme_h2yge"]
 
 [node name="Level 1" type="Node" unique_id=1663357308]
@@ -61,6 +67,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
 [node name="monster" parent="." unique_id=1367917072 instance=ExtResource("3_ihfcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
+
+[node name="Obstaculo" type="RigidBody3D" parent="." unique_id=1610819186]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstaculo" unique_id=1092026169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -17)
+shape = SubResource("BoxShape3D_qrxph")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obstaculo" unique_id=1980456318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -17)
+mesh = SubResource("BoxMesh_cxohp")
 
 [node name="UserInterface" type="Control" parent="." unique_id=1355068312]
 layout_mode = 3
