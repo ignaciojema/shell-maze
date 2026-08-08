@@ -8,6 +8,12 @@
 [ext_resource type="Material" uid="uid://rut2ti0wdbgh" path="res://Art/Materials/M_Wall_3.tres" id="6_4htgj"]
 [ext_resource type="Material" uid="uid://csx1u6iah7nj3" path="res://Art/Materials/M_Wall_4.tres" id="7_7r0mf"]
 [ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="8_4fxng"]
+[ext_resource type="PlaneMesh" uid="uid://dcfemrtoqlgyn" path="res://Art/VFX/VFX_Bubble.tres" id="9_wighl"]
+
+[sub_resource type="Gradient" id="Gradient_6y0sn"]
+offsets = PackedFloat32Array(0.7, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4fxng"]
 sky_top_color = Color(0.036284853, 0.12987337, 0.17838722, 1)
@@ -36,6 +42,21 @@ adjustment_saturation = 1.2
 size = Vector3(9.9366455, 0.6326904, 7.543701)
 
 [node name="Arte" type="Node2D" unique_id=380387002]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=622698478]
+transform = Transform3D(-0.114521146, 0, -0.99342084, 0, 1, 0, 0.99342084, 0, -0.114521146, -5.0942745, 0.645396, 0.33720136)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("9_wighl")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6y0sn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1594987059]
 environment = SubResource("Environment_6y0sn")
@@ -67,4 +88,4 @@ surface_material_override/9 = ExtResource("6_4htgj")
 surface_material_override/10 = ExtResource("4_wighl")
 
 [node name="Player" parent="." unique_id=2147040961 instance=ExtResource("8_4fxng")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062282324, 0.103805885, 0.026156649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8943567, 0.103805885, 2.2728813)

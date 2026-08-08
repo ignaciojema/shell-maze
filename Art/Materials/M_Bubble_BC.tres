@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b6y6oibki1f4e"]
+
+[ext_resource type="Texture2D" uid="uid://cfecpi5c8ngdm" path="res://Art/Textures/T_Bubble_VFX.png" id="1_lx1n5"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_lx1n5")
