@@ -1,5 +1,20 @@
-[gd_scene format=3 uid="uid://cndvby87dgtlh"]
+[gd_scene format=3 uid="uid://wt8csdwen1a3"]
 
-[node name="monster" type="RigidBody3D" unique_id=1367917072]
+[ext_resource type="Script" uid="uid://dq4218em2dir7" path="res://monster.gd" id="1_s3gyj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jiulq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c5q2p"]
+
+[node name="monster" type="CharacterBody3D" unique_id=359188957 groups=["enemy"]]
+script = ExtResource("1_s3gyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=162455676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_jiulq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=295440533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_c5q2p")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=560254636]

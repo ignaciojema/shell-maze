@@ -6,7 +6,7 @@ extends CharacterBody3D
 @onready var timer = $Timer
 
 ## CONSTANTS
-const WALK_SPEED = 5.0
+const WALK_SPEED = 1.2
 const SPRINT_SPEED = 15.0
 const INERTIA_COEF = 7.0
 const SENSITIVITY = 0.003
