@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://chs8jcp580cat" path="res://exit_button.gd" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://bio0b03ydqf7a" path="res://start_button.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://n51vyj65frad" path="res://credits_button.gd" id="2_fu7sn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrxph"]
-bg_color = Color(0, 0.4906469, 0.05009833, 1)
+bg_color = Color(0, 1, 0, 1)
 
 [node name="MainMenu" type="Control" unique_id=457104086]
 layout_mode = 3
@@ -36,6 +37,7 @@ offset_left = -132.0
 offset_right = 132.0
 offset_bottom = 152.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Shell Maze"
 horizontal_alignment = 1
@@ -65,6 +67,7 @@ script = ExtResource("1_7vrkn")
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Credits"
+script = ExtResource("2_fu7sn")
 
 [node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1015861150]
 layout_mode = 2
@@ -73,4 +76,5 @@ text = "Exit"
 script = ExtResource("1_06t4h")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="VBoxContainer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="VBoxContainer/CreditsButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_pressed"]
