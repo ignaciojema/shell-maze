@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bs72cpt43lhff"]
 
 [ext_resource type="Script" uid="uid://chs8jcp580cat" path="res://exit_button.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bio0b03ydqf7a" path="res://start_button.gd" id="1_7vrkn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrxph"]
 bg_color = Color(0, 0.4906469, 0.05009833, 1)
@@ -58,6 +59,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Start Game"
+script = ExtResource("1_7vrkn")
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=865797477]
 layout_mode = 2
@@ -70,4 +72,5 @@ theme_override_font_sizes/font_size = 30
 text = "Exit"
 script = ExtResource("1_06t4h")
 
+[connection signal="pressed" from="VBoxContainer/StartButton" to="VBoxContainer/StartButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_pressed"]
