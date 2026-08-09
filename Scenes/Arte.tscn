@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://b7wjscww0yrhv" path="res://Art/Textures/T_Wall4_BC.jpg" id="9_tv7aq"]
 [ext_resource type="PlaneMesh" uid="uid://dcfemrtoqlgyn" path="res://Art/VFX/VFX_Bubble.tres" id="9_wighl"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="11_7r0mf"]
+[ext_resource type="ArrayMesh" uid="uid://budad3ny0u85b" path="res://Art/Meshes/Conchas_GameJam.obj" id="12_7r0mf"]
+[ext_resource type="Material" uid="uid://b7yhtvbm7m2rq" path="res://Art/Materials/M_Concha.tres" id="12_srlmr"]
 
 [sub_resource type="Gradient" id="Gradient_6y0sn"]
 offsets = PackedFloat32Array(0.7, 1)
@@ -32,6 +34,8 @@ sky = SubResource("Sky_4htgj")
 tonemap_mode = 3
 tonemap_exposure = 5.0
 sdfgi_enabled = true
+glow_enabled = true
+glow_blend_mode = 2
 fog_enabled = true
 fog_light_color = Color(0.034554485, 0.10474209, 0.21510369, 1)
 fog_light_energy = 0.2
@@ -116,6 +120,11 @@ surface_material_override/10 = SubResource("StandardMaterial3D_wnilh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9379272, -0.18365479, -0.68444824)
 visible = false
 shape = SubResource("BoxShape3D_ty0te")
+
+[node name="Conchas" type="MeshInstance3D" parent="." unique_id=1466431455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8749623, 0.10380554, -2.1290984)
+material_override = ExtResource("12_srlmr")
+mesh = ExtResource("12_7r0mf")
 
 [node name="Player" parent="." unique_id=2147040961 instance=ExtResource("8_4fxng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8943567, 0.103805885, 2.2728813)
