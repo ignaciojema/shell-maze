@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dlm0is3808goy"]
 
 [ext_resource type="Script" uid="uid://dpkug7fn3m4pt" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="AudioStream" uid="uid://p8u5pf6s8bb7" path="res://Walking_player.mp3" id="2_onrkg"]
-[ext_resource type="AudioStream" uid="uid://dj23dgmokckmv" path="res://Running_player.mp3" id="4_hqtel"]
+[ext_resource type="AudioStream" uid="uid://bjhoubj0txfe8" path="res://SFX/Betterfootsteps.mp3" id="2_hqtel"]
+[ext_resource type="AudioStream" uid="uid://dy1sequw3c2er" path="res://SFX/Swimming_run.wav" id="3_hqtel"]
 [ext_resource type="Script" uid="uid://b8sf61ese2qoq" path="res://StaminaBar.gd" id="5_sweqy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jiulq"]
@@ -112,10 +112,12 @@ wait_time = 1.5
 autostart = true
 
 [node name="WalkAudio" type="AudioStreamPlayer3D" parent="." unique_id=1743206365]
-stream = ExtResource("2_onrkg")
+stream = ExtResource("2_hqtel")
+volume_db = -10.0
 
 [node name="RunAudio" type="AudioStreamPlayer3D" parent="." unique_id=1870391940]
-stream = ExtResource("4_hqtel")
+stream = ExtResource("3_hqtel")
+volume_db = -9.0
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1669001719]
 anchors_preset = 7
