@@ -99,6 +99,9 @@ size = Vector3(0.21780396, 1.9267578, 5.808777)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjv2q"]
 size = Vector3(4.0620117, 1.7397461, 0.25793457)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qiaki"]
+size = Vector3(0.40246582, 1.7954102, 0.50006104)
+
 [sub_resource type="Theme" id="Theme_g4w1m"]
 
 [node name="Maze" type="Node3D" unique_id=772575423]
@@ -416,6 +419,10 @@ shape = SubResource("BoxShape3D_wjv2q")
 [node name="CollisionShape3D31" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1306695049]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -29.608171, -2.090806, 41.669025)
 shape = SubResource("BoxShape3D_wjv2q")
+
+[node name="CollisionShape3D32" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1229438916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8791895, -2.1024134, -3.0225723)
+shape = SubResource("BoxShape3D_qiaki")
 
 [node name="UserInterface" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1865681212]
 layout_mode = 3
