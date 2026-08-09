@@ -69,16 +69,10 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 visible = false
 shadow_enabled = true
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=212237768]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=785327448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9075475, -0.02888453, 0.027582526)
-gravity_scale = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1716981929]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9379272, -0.18365479, -0.68444824)
-visible = false
-shape = SubResource("BoxShape3D_ty0te")
-
-[node name="SM_Scenary" type="MeshInstance3D" parent="RigidBody3D" unique_id=1034369638]
+[node name="SM_Scenary" type="MeshInstance3D" parent="StaticBody3D" unique_id=1034369638]
 mesh = ExtResource("1_ttm2t")
 surface_material_override/0 = ExtResource("2_8yj8b")
 surface_material_override/1 = ExtResource("3_4fxng")
@@ -91,6 +85,11 @@ surface_material_override/7 = ExtResource("2_8yj8b")
 surface_material_override/8 = ExtResource("5_6y0sn")
 surface_material_override/9 = ExtResource("6_4htgj")
 surface_material_override/10 = ExtResource("4_wighl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1716981929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9379272, -0.18365479, -0.68444824)
+visible = false
+shape = SubResource("BoxShape3D_ty0te")
 
 [node name="Player" parent="." unique_id=2147040961 instance=ExtResource("8_4fxng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8943567, 0.103805885, 2.2728813)
