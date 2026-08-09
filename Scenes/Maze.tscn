@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://conssb5xuoeb" path="res://Scenes/pause_menu.tscn" id="4_sww8e"]
 [ext_resource type="Script" uid="uid://rcxuyc7a1n7i" path="res://score.gd" id="5_5lbnq"]
 [ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="7_7yhxv"]
+[ext_resource type="PackedScene" uid="uid://np7tbwk6sfh4" path="res://shell.tscn" id="7_ohbi6"]
 [ext_resource type="Texture2D" uid="uid://7ccvyfv77cpy" path="res://Art/Textures/T_Shell_HUD.png" id="8_7yhxv"]
 [ext_resource type="Shader" uid="uid://cnld3o6wk58ab" path="res://Art/Materials/M_PSX_Shader.gdshader" id="9_14cn6"]
 [ext_resource type="PackedScene" uid="uid://denxd5kkah7rw" path="res://Art/Meshes/Mazev4.fbx" id="10_6ccfi"]
@@ -281,7 +282,22 @@ scale_amount_min = 0.0
 color_ramp = SubResource("Gradient_6ccfi")
 
 [node name="CPUParticles3D11" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1816082328]
-transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -4.805963, -0.53806317, 59.51062)
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -10.296135, -0.53806317, 56.57146)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D24" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1984331030]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, 4.292316, -0.53806317, 63.53744)
 visibility_range_begin_margin = 10.0
 amount = 5
 lifetime = 1.5
@@ -402,6 +418,60 @@ color_ramp = SubResource("Gradient_6ccfi")
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=2147040961 instance=ExtResource("2_yuvd5")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.647309, 0.84692407, -24.77821)
+
+[node name="Shells" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=229481962]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.647309, 0.84692407, -24.77821)
+
+[node name="Shell" parent="SubViewportContainer/SubViewport/Shells" unique_id=1669908532 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3650084, 0.4934399, 33.08904)
+
+[node name="Shell2" parent="SubViewportContainer/SubViewport/Shells" unique_id=2052395362 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.564568, 0.4934399, 46.269447)
+
+[node name="Shell4" parent="SubViewportContainer/SubViewport/Shells" unique_id=1563804350 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.835411, 0.4934399, 93.30173)
+
+[node name="Shell16" parent="SubViewportContainer/SubViewport/Shells" unique_id=559271097 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4217944, 0.4934399, 92.38318)
+
+[node name="Shell17" parent="SubViewportContainer/SubViewport/Shells" unique_id=691550562 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.257834, 0.4934399, 92.77519)
+
+[node name="Shell5" parent="SubViewportContainer/SubViewport/Shells" unique_id=971209725 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.956032, 0.4934399, 93.30173)
+
+[node name="Shell6" parent="SubViewportContainer/SubViewport/Shells" unique_id=9868457 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.080532, 0.4934399, 84.498116)
+
+[node name="Shell7" parent="SubViewportContainer/SubViewport/Shells" unique_id=1694118514 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.46139, 0.4934399, 94.25805)
+
+[node name="Shell8" parent="SubViewportContainer/SubViewport/Shells" unique_id=743617601 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.223133, 0.4934399, 54.312923)
+
+[node name="Shell9" parent="SubViewportContainer/SubViewport/Shells" unique_id=1602997563 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.46804, 0.4934399, -0.22946548)
+
+[node name="Shell10" parent="SubViewportContainer/SubViewport/Shells" unique_id=566881087 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.567703, 0.4934399, 9.074221)
+
+[node name="Shell11" parent="SubViewportContainer/SubViewport/Shells" unique_id=1815928159 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5677, 0.4934399, 21.276348)
+
+[node name="Shell12" parent="SubViewportContainer/SubViewport/Shells" unique_id=490895951 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.741447, 0.4934399, 38.71176)
+
+[node name="Shell13" parent="SubViewportContainer/SubViewport/Shells" unique_id=927240075 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.981223, 0.4934399, 49.335274)
+
+[node name="Shell14" parent="SubViewportContainer/SubViewport/Shells" unique_id=105507874 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8428655, 0.4934399, 49.335274)
+
+[node name="Shell15" parent="SubViewportContainer/SubViewport/Shells" unique_id=1910621030 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.837212, 0.4934399, 60.663162)
+
+[node name="Shell3" parent="SubViewportContainer/SubViewport/Shells" unique_id=1661610333 instance=ExtResource("7_ohbi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.432859, 0.4934399, 61.018627)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=1486569182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1141567, 3.4849844, 0)
