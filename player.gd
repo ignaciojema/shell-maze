@@ -38,8 +38,8 @@ func _ready() -> void:
 	walk_audio.play()
 	run_audio.play()
 	
-	walk_audio.volume_db = 0.0
-	run_audio.volume_db = 0.0
+	walk_audio.volume_db = -80.0
+	run_audio.volume_db = -80.0
 
 func win_game():
 	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
@@ -88,25 +88,32 @@ func _physics_process(delta: float) -> void:
 	var is_moving: bool = direction.length() > 0.01
 	
 	# Audio crossfade
-	if is_moving && is_sprinting:
-		audio_blend = lerp(audio_blend, 1.0, delta * audio_transition_speed)
-	elif is_moving:
-		audio_blend = lerp(audio_blend, 0.0, delta * audio_transition_speed)
-	else:
-		audio_blend = lerp(audio_blend, 0.0, delta * audio_transition_speed)
-	
-	# Apply audio volumes
 	if is_moving:
+		if is_sprinting:
+			audio_blend = lerp(audio_blend, 1.0, delta * audio_transition_speed)
+		else: 
+			audio_blend = lerp(audio_blend, 0.0, delta * audio_transition_speed)
+			
+		if not walk_audio.playing:
+			walk_audio.play()
+			
+		if not run_audio.playing:
+			run_audio.play()
 		walk_audio.volume_db = lerp(0.0, -80.0, audio_blend)
 		run_audio.volume_db = lerp(-80.0, 0.0, audio_blend)
-	else: 
+	else:
+		audio_blend = lerp(audio_blend, 0.0, delta * audio_transition_speed)
+		
 		walk_audio.volume_db = lerp(walk_audio.volume_db, -80.0, delta * audio_transition_speed)
 		run_audio.volume_db = lerp(run_audio.volume_db, -80.0, delta * audio_transition_speed)
 	
 	# Check movement to reset timer
 	if input_dir != Vector2.ZERO:
-		timer.start()
-		can_regen = false
+		if is_sprinting: 
+			timer.start()
+			can_regen = false
+		else: 
+			can_regen = true
 
 	if direction:
 		tilt_duration += delta * tilt_speed
