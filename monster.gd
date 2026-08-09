@@ -113,6 +113,8 @@ func _physics_process(delta: float) -> void:
 		if velocity.y < 0.0:
 			velocity.y = 0.0
 
+	look_at(position - velocity)
+
 	move_and_slide()
 
 
