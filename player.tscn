@@ -125,7 +125,7 @@ stream = ExtResource("4_hqtel")
 [node name="AmbientAudio" type="AudioStreamPlayer3D" parent="." unique_id=400134107]
 stream = ExtResource("5_sweqy")
 
-[node name="ChaseAudio" type="AudioStreamPlayer3D" parent="." unique_id=237845805]
+[node name="ChaseAudio" type="AudioStreamPlayer3D" parent="." unique_id=237845805 groups=["player"]]
 stream = ExtResource("6_2hs0m")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

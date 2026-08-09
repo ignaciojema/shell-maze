@@ -1,141 +1,82 @@
 extends CharacterBody3D
 
+@onready var nav: NavigationAgent3D = $NavigationAgent3D
 
-@onready var head = $Head
-@onready var camera = $Head/Camera3D
-@onready var timer = $Timer
-@onready var walk_audio = $WalkAudio
-@onready var run_audio = $RunAudio
-@onready var ambient_audio = $AmbientAudio
-@onready var chase_audio = $ChaseAudio
+var speed := 3.5
 
-## CONSTANTS
-const WALK_SPEED = 1.2
-const SPRINT_SPEED = 4.1
-const INERTIA_COEF = 7.0
-const SENSITIVITY = 0.003
-const MAX_STAMINA = 100.0
+# Cono de visión ampliado a 120 grados para evitar perder de vista al jugador al girar
+var angle_cone_of_vision := deg_to_rad(120.0)
+var max_view_distance := 80.0
+var angle_between_rays := deg_to_rad(6.0)
+var current_target: Node3D = null
 
-## VARIABLES
-var alive := true
-var speed := WALK_SPEED
-var stamina := MAX_STAMINA
-var can_regen := false
-var depleting_speed := 10.0
-var recovering_speed := 10.0
-var score := 0
-var audio_blend := 0.0
-var tilt_duration:= 0.0
-
-var is_being_chased: bool = false
-
-@export var tilt_speed:= 7.0
-@export var tilt_amount := 0.4
-@export var audio_transition_speed := 5.0
-@export var music_transition_speed: float = 2.0
-
-## METHODS
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	# Hide mouse
-	Engine.max_fps = 60
-	walk_audio.play()
-	run_audio.play()
-	
-	walk_audio.volume_db = 0.0
-	run_audio.volume_db = 0.0
-	
-	# Ambient audio play
-	ambient_audio.play()
-	chase_audio.play()
-	
-	# Setting up iniital volumes
-	ambient_audio.volume_db = 0.0
-	chase_audio.volume_db = -80.0
+	generate_raycasts()
+	# Esperar un frame de físicas para que NavigationServer3D se sincronice
+	await get_tree().physics_frame
 
-func _process(delta: float) -> void:
-	if is_being_chased:
-		ambient_audio.volume_db = lerp(ambient_audio.volume_db, -80.0, delta * music_transition_speed)
-		chase_audio.volume_db = lerp(chase_audio.volume_db, 0.0, delta * music_transition_speed)
-	else:
-		ambient_audio.volume_db = lerp(ambient_audio.volume_db, 0.0, delta * music_transition_speed)
-		chase_audio.volume_db = lerp(chase_audio.volume_db, -80.0, delta * music_transition_speed)
+func generate_raycasts() -> void:
+	var ray_count : int = int(angle_cone_of_vision / angle_between_rays)
 
-func inc_score():
-	score += 1
-
-
-# Handle camera rotation
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-
+	for index in ray_count:
+		var ray := RayCast3D.new()
+		ray.add_exception(self)
+		ray.position.y = 1.2 # Altura de los ojos
+		
+		var angle := angle_between_rays * (index - ray_count / 2.0)
+		var direction := Vector3.FORWARD.rotated(Vector3.UP, angle)
+		
+		ray.target_position = direction * max_view_distance
+		add_child(ray)
+		ray.enabled = true
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# 1. Aplicar gravedad
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle sprint
-	var is_sprinting := Input.is_action_pressed("sprint") && stamina > 0
+	# 2. Comprobar si algún rayo detecta al jugador
+	var seen_player: Node3D = null
+	for child in get_children():
+		if child is RayCast3D and child.is_colliding():
+			var collider = child.get_collider()
+			if collider and collider.is_in_group("player"):
+				seen_player = collider
+				break
+
+	# 3. Lógica de persecución y audio
+	if seen_player != null:
+		if current_target != seen_player:
+			current_target = seen_player
+			print("¡Monstruo detectó al jugador!")
+			if "is_being_chased" in current_target:
+				current_target.is_being_chased = true
 		
-	if is_sprinting:
-		speed = SPRINT_SPEED
-		stamina -= depleting_speed * delta
+		nav.target_position = current_target.global_position
 	else:
-		speed = WALK_SPEED
-	
-	# Regen stamina
-	if can_regen:
-		stamina += recovering_speed * delta
+		if current_target != null:
+			print("Monstruo perdió de vista al jugador.")
+			if "is_being_chased" in current_target:
+				current_target.is_being_chased = false
+			current_target = null
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var direction: Vector3 = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
-	# Is the player actually moving?
-	var is_moving: bool = direction.length() > 0.01
-	
-	# Audio crossfade
-	if is_moving && is_sprinting:
-		audio_blend = lerp(audio_blend, 1.0, delta * audio_transition_speed)
-	elif is_moving:
-		audio_blend = lerp(audio_blend, 0.0, delta * audio_transition_speed)
-	else:
-		audio_blend = lerp(audio_blend, 0.0, delta * audio_transition_speed)
-	
-	# Apply audio volumes
-	if is_moving:
-		walk_audio.volume_db = lerp(0.0, -80.0, audio_blend)
-		run_audio.volume_db = lerp(-80.0, 0.0, audio_blend)
-	else: 
-		walk_audio.volume_db = lerp(walk_audio.volume_db, -80.0, delta * audio_transition_speed)
-		run_audio.volume_db = lerp(run_audio.volume_db, -80.0, delta * audio_transition_speed)
-	
-	# Check movement to reset timer
-	if input_dir != Vector2.ZERO:
-		timer.start()
-		can_regen = false
-
-	if direction:
-		tilt_duration += delta * tilt_speed
+	# 4. Movimiento y rotación del monstruo
+	if current_target != null and not nav.is_navigation_finished():
+		var next_location = nav.get_next_path_position()
+		var current_location = global_position
+		var dir = (next_location - current_location)
+		dir.y = 0
 		
-		camera.rotation_degrees.z = sin(tilt_duration) * tilt_amount
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		if dir.length() > 0.1:
+			var new_velocity = dir.normalized() * speed
+			velocity.x = move_toward(velocity.x, new_velocity.x, 0.25)
+			velocity.z = move_toward(velocity.z, new_velocity.z, 0.25)
+			
+			# Rotar suavemente al monstruo hacia donde camina
+			var target_rotation = atan2(-dir.x, -dir.z)
+			rotation.y = lerp_angle(rotation.y, target_rotation, delta * 8.0)
 	else:
-		tilt_duration = 0.0 
-		camera.rotation.z = lerp(camera.rotation.z, 0.0, delta * tilt_speed)
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * INERTIA_COEF)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * INERTIA_COEF)
-
-	stamina = clamp(stamina, 0, MAX_STAMINA)
+		velocity.x = move_toward(velocity.x, 0.0, 0.25)
+		velocity.z = move_toward(velocity.z, 0.0, 0.25)
 
 	move_and_slide()
-
-
-# Handle stamina regen cooldown
-func _on_timer_timeout() -> void:
-	can_regen = true
