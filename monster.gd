@@ -13,8 +13,8 @@ enum State {
 }
 
 ## VARIABLES 
-var patrol_speed = 3.0
-var chase_speed = 5.0
+var patrol_speed = 2.0
+var chase_speed = 2.7
 var current_state:= State.PATROL
 
 
