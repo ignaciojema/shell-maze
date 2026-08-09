@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://ca8mcy535rmn"]
+[gd_scene format=3 uid="uid://bdq06o5qbwwuw"]
 
-[ext_resource type="Script" uid="uid://bt1q62n5ncqbh" path="res://scripts/end_screen.gd" id="1_jrx8a"]
-[ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="2_3gukv"]
-[ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_jh5rx"]
+[ext_resource type="Script" uid="uid://bt1q62n5ncqbh" path="res://scripts/end_screen.gd" id="1_1d6nr"]
+[ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="2_n2kst"]
+[ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_phjal"]
 
 [node name="Node2D" type="Node2D" unique_id=1903017911]
-script = ExtResource("1_jrx8a")
+script = ExtResource("1_1d6nr")
 
 [node name="Background" type="ColorRect" parent="." unique_id=430853429]
 offset_right = 679.0
@@ -24,12 +24,12 @@ offset_left = 47.0
 offset_top = 317.0
 offset_right = 119.0
 offset_bottom = 355.0
-theme_override_fonts/font = ExtResource("2_3gukv")
+theme_override_fonts/font = ExtResource("2_n2kst")
 theme_override_font_sizes/font_size = 16
 text = "Main Menu"
 flat = true
 
-[node name="ColorRect" parent="." unique_id=1033899391 instance=ExtResource("3_jh5rx")]
+[node name="ColorRect" parent="." unique_id=1033899391 instance=ExtResource("3_phjal")]
 visible = false
 
 [node name="Fade_Timer" type="Timer" parent="ColorRect" unique_id=1150246165]
@@ -39,13 +39,13 @@ offset_left = 79.0
 offset_top = 39.0
 offset_right = 583.0
 offset_bottom = 297.0
-theme_override_fonts/font = ExtResource("2_3gukv")
+theme_override_fonts/font = ExtResource("2_n2kst")
 theme_override_font_sizes/font_size = 16
-text = "You died!"
+text = "Resultados"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FadeOut" parent="." unique_id=1017979683 instance=ExtResource("3_jh5rx")]
+[node name="FadeOut" parent="." unique_id=1017979683 instance=ExtResource("3_phjal")]
 visible = false
 
 [connection signal="pressed" from="Control/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
