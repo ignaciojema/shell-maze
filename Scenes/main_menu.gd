@@ -19,7 +19,7 @@ func _on_quit_pressed() -> void:
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "Start" :
-		get_tree().change_scene_to_file("res://Scenes/Arte.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Maze.tscn")
 	elif button_type == "Credits" :
 		get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
 		

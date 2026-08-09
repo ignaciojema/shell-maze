@@ -46,8 +46,10 @@ size = Vector3(9.9366455, 0.6326904, 7.543701)
 [node name="Arte" type="Node2D" unique_id=380387002]
 script = ExtResource("1_4htgj")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=622698478]
-transform = Transform3D(-0.114521146, 0, -0.99342084, 0, 1, 0, 0.99342084, 0, -0.114521146, -5.0942745, 0.09037101, 0.33720136)
+[node name="Particulas" type="Node3D" parent="." unique_id=629138135]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Particulas" unique_id=622698478]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -5.9790854, 0.09037101, 0.33720136)
 visibility_range_begin_margin = 10.0
 amount = 5
 lifetime = 1.5

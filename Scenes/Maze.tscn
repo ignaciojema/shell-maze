@@ -1,18 +1,25 @@
 [gd_scene format=3 uid="uid://c04rp2m2payjj"]
 
+[ext_resource type="Script" uid="uid://0wjcw1tsr05h" path="res://Scenes/maze.gd" id="1_7hfkg"]
 [ext_resource type="PackedScene" uid="uid://c4eitmo3k0dmy" path="res://Art/Meshes/FM_Maze.fbx" id="1_v2hyu"]
 [ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="2_yuvd5"]
+[ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="4_5lbnq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5lbnq"]
+size = Vector3(73.760315, 0.17211914, 72.0155)
 
 [node name="Maze" type="Node3D" unique_id=772575423]
+script = ExtResource("1_7hfkg")
 
 [node name="Player" parent="." unique_id=2147040961 instance=ExtResource("2_yuvd5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.07566, 1.7185867, 4.997761)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -2.533152, -2.6380603, -24.77821)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1486569182]
 
 [node name="FM_Maze" parent="StaticBody3D" unique_id=1971317525 instance=ExtResource("1_v2hyu")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1868928615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.269684, -2.6419678, 10.777283)
 shape = SubResource("BoxShape3D_5lbnq")
+
+[node name="ColorRect" parent="." unique_id=1033899391 instance=ExtResource("4_5lbnq")]
