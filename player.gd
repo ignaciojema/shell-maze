@@ -13,16 +13,16 @@ const SENSITIVITY = 0.003
 const MAX_STAMINA = 100.0
 
 ## VARIABLES
+var score := 0
 var alive := true
 var speed := WALK_SPEED
 var stamina := MAX_STAMINA
 var can_regen := false
 var depleting_speed := 10.0
 var recovering_speed := 10.0
-var score := 0
-
 var tilt_duration:= 0.0
 
+@export var total_shells := 15
 @export var tilt_speed:= 7.0
 @export var tilt_amount := 0.4
 
@@ -31,8 +31,17 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	# Hide mouse
 
 
+func win_game():
+	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
+
+
 func inc_score():
 	score += 1
+	
+	if score >= total_shells:
+		win_game()
+
+
 
 
 # Handle camera rotation

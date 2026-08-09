@@ -86,7 +86,7 @@ root_node = NodePath("../../AudioStreamPlayer3D")
 libraries/ = SubResource("AnimationLibrary_i3pqv")
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1254559527]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2455387, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4190902, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=1826297822]
 light_color = Color(1.7808378e-06, 0.39919966, 0.55349916, 1)

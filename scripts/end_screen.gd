@@ -14,6 +14,7 @@ func _on_fade_timer_timeout() -> void:
 		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)	# Hide mouse
 	$FadeOut/AnimationPlayer.play("fade_out")
 	await get_tree().create_timer(1.0).timeout
 	$FadeOut.hide()

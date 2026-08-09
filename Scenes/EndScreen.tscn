@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ca8mcy535rmn"]
 
-[ext_resource type="Script" uid="uid://bt1q62n5ncqbh" path="res://Scenes/end_screen.gd" id="1_jrx8a"]
+[ext_resource type="Script" uid="uid://bt1q62n5ncqbh" path="res://scripts/end_screen.gd" id="1_jrx8a"]
 [ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="2_3gukv"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_jh5rx"]
 
