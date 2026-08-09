@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bdq06o5qbwwuw"]
 
-[ext_resource type="Script" uid="uid://bt1q62n5ncqbh" path="res://scripts/end_screen.gd" id="1_1d6nr"]
+[ext_resource type="Script" uid="uid://b4hcictkx3tys" path="res://Scenes/death_screen.gd" id="1_n2kst"]
 [ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="2_n2kst"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_phjal"]
+[ext_resource type="AudioStream" uid="uid://ddxcd3gg86pqq" path="res://SFX/spooky_sound.mp3" id="4_n2kst"]
 
 [node name="Node2D" type="Node2D" unique_id=1903017911]
-script = ExtResource("1_1d6nr")
+script = ExtResource("1_n2kst")
 
 [node name="Background" type="ColorRect" parent="." unique_id=430853429]
 offset_right = 679.0
@@ -47,6 +48,9 @@ vertical_alignment = 1
 
 [node name="FadeOut" parent="." unique_id=1017979683 instance=ExtResource("3_phjal")]
 visible = false
+
+[node name="DeathAudio" type="AudioStreamPlayer2D" parent="." unique_id=1864389193]
+stream = ExtResource("4_n2kst")
 
 [connection signal="pressed" from="Control/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_credits_timeout"]
