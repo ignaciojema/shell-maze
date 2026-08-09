@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://o8dbm0wei6yc"]
 
-[ext_resource type="Texture2D" uid="uid://b7wjscww0yrhv" path="res://Art/Textures/T_Wall4_BC.jpg" id="1_bpjkg"]
+[ext_resource type="Texture2D" uid="uid://b7wjscww0yrhv" path="res://Art/textures/T_Wall4_BC.jpg" id="1_bpjkg"]
 
 [resource]
 resource_name = "WALL4"
@@ -9,4 +9,3 @@ albedo_texture = ExtResource("1_bpjkg")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
-texture_filter = 2

@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://c04rp2m2payjj"]
 
 [ext_resource type="Script" uid="uid://0wjcw1tsr05h" path="res://scripts/maze.gd" id="1_7hfkg"]
-[ext_resource type="PackedScene" uid="uid://c4eitmo3k0dmy" path="res://Art/Meshes/SM_Maze.fbx" id="1_v2hyu"]
 [ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="2_yuvd5"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="4_5lbnq"]
 [ext_resource type="PackedScene" uid="uid://conssb5xuoeb" path="res://Scenes/pause_menu.tscn" id="4_sww8e"]
 [ext_resource type="Script" uid="uid://rcxuyc7a1n7i" path="res://score.gd" id="5_5lbnq"]
 [ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="7_7yhxv"]
 [ext_resource type="Texture2D" uid="uid://7ccvyfv77cpy" path="res://Art/Textures/T_Shell_HUD.png" id="8_7yhxv"]
-[ext_resource type="Shader" uid="uid://d37i55bhv7xvx" path="res://Art/Materials/M_PSX_Shader.gdshader" id="9_14cn6"]
+[ext_resource type="Shader" uid="uid://cnld3o6wk58ab" path="res://Art/Materials/M_PSX_Shader.gdshader" id="9_14cn6"]
+[ext_resource type="PackedScene" uid="uid://denxd5kkah7rw" path="res://Art/Meshes/Mazev4.fbx" id="10_6ccfi"]
 [ext_resource type="PlaneMesh" uid="uid://dcfemrtoqlgyn" path="res://Art/VFX/VFX_Bubble.tres" id="10_rgewu"]
+[ext_resource type="PackedScene" uid="uid://ttrvj7h811xn" path="res://Art/Meshes/MazeCeilingv2.fbx" id="11_6ccfi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgewu"]
 shader = ExtResource("9_14cn6")
@@ -23,31 +24,8 @@ offsets = PackedFloat32Array(0.7, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sww8e"]
-sky_top_color = Color(0.036284853, 0.12987337, 0.17838722, 1)
-sky_horizon_color = Color(0.0077188383, 0.017091509, 0.10116596, 1)
-ground_bottom_color = Color(0.015336384, 0.024466665, 0.086200826, 1)
-ground_horizon_color = Color(0.03306915, 0.056723684, 0.18566674, 1)
-
-[sub_resource type="Sky" id="Sky_wighl"]
-sky_material = SubResource("ProceduralSkyMaterial_sww8e")
-
-[sub_resource type="Environment" id="Environment_7yhxv"]
-background_mode = 2
-sky = SubResource("Sky_wighl")
-tonemap_mode = 3
-tonemap_exposure = 6.5
-sdfgi_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.0106114345, 0.04530935, 0.11823455, 1)
-fog_light_energy = 0.25
-fog_density = 0.2669
-adjustment_enabled = true
-adjustment_brightness = 0.84
-adjustment_saturation = 1.2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5lbnq"]
-size = Vector3(73.760315, 0.17211914, 108)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ccfi"]
+size = Vector3(37.900146, 1, 72.885315)
 
 [sub_resource type="Theme" id="Theme_g4w1m"]
 
@@ -76,9 +54,11 @@ render_target_update_mode = 4
 
 [node name="Particulas" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1445932683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4619355, 0.99777865, -20.18267)
+visible = false
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=318695029]
 transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -0.8059635, 0.09037101, -0.48937988)
+visible = false
 visibility_range_begin_margin = 10.0
 amount = 5
 lifetime = 1.5
@@ -92,24 +72,22 @@ initial_velocity_max = 0.3
 scale_amount_min = 0.0
 color_ramp = SubResource("Gradient_6ccfi")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=813579019]
-environment = SubResource("Environment_7yhxv")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/WorldEnvironment" unique_id=679682666]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 4.4752617, 0)
-shadow_enabled = true
-
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=2147040961 instance=ExtResource("2_yuvd5")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.647309, 0.84692407, -24.77821)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=1486569182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1141567, 3.4849844, 0)
 
-[node name="SM_Maze" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1971317525 instance=ExtResource("1_v2hyu")]
+[node name="Mazev4" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1313641394 instance=ExtResource("10_6ccfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1141567, -0.4849844, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1868928615]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.269684, -2.6419678, -7.214966)
-shape = SubResource("BoxShape3D_5lbnq")
+[node name="MazeCeilingv2" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1570194099 instance=ExtResource("11_6ccfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.393124, -0.49830914, 8.111671)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=81767715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.222313, -3.525624, 9.238129)
+shape = SubResource("BoxShape3D_6ccfi")
 
 [node name="UserInterface" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1865681212]
 layout_mode = 3
