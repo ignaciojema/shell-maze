@@ -2,7 +2,7 @@ extends Node2D
 
 var button_type = null
 
-func _on_back_pressed() -> void:
+func _on_main_menu_button_pressed() -> void:
 	button_type = "Back"
 	$ColorRect.show()
 	$ColorRect/Fade_Timer.start()
