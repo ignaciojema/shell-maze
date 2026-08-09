@@ -7,6 +7,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_jiulq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qrxph"]
+radius = 0.25
 
 [node name="Shell" type="Area3D" unique_id=1669908532]
 script = ExtResource("1_6fuaf")
