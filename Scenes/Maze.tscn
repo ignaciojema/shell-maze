@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://denxd5kkah7rw" path="res://Art/Meshes/Mazev4.fbx" id="10_6ccfi"]
 [ext_resource type="PlaneMesh" uid="uid://dcfemrtoqlgyn" path="res://Art/VFX/VFX_Bubble.tres" id="10_rgewu"]
 [ext_resource type="PackedScene" uid="uid://ttrvj7h811xn" path="res://Art/Meshes/MazeCeilingv2.fbx" id="11_6ccfi"]
-[ext_resource type="AudioStream" uid="uid://dbscgt17bylx7" path="res://SFX/suspense.mp3" id="13_1id2u"]
+[ext_resource type="AudioStream" uid="uid://gpvbdnah6woe" path="res://SFX/UnderwaterAmbient.wav" id="13_1id2u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgewu"]
 shader = ExtResource("9_14cn6")
@@ -1238,7 +1238,8 @@ environment = SubResource("Environment_1id2u")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 4.4752617, 0)
 visible = false
 shadow_enabled = true
+
 [node name="AmbientSFX" type="AudioStreamPlayer3D" parent="." unique_id=594678963]
 stream = ExtResource("13_1id2u")
-volume_db = -10.0
+volume_db = 2.0
 autoplay = true
