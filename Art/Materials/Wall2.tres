@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://b0uytwsa5jxpb"]
 
-[ext_resource type="Texture2D" uid="uid://crr1axcpcouyk" path="res://Art/textures/T_Wall2_BC.jpg" id="1_ut3qg"]
+[ext_resource type="Texture2D" uid="uid://crr1axcpcouyk" path="res://Art/Textures/T_Wall2_BC.jpg" id="1_ut3qg"]
 
 [resource]
 resource_name = "Wall2"
