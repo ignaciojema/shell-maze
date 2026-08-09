@@ -6,6 +6,8 @@ extends CharacterBody3D
 @onready var timer = $Timer
 @onready var walk_audio = $WalkAudio
 @onready var run_audio = $RunAudio
+@onready var ambient_audio = $AmbientAudio
+@onready var chase_audio = $ChaseAudio
 
 ## CONSTANTS
 const WALK_SPEED = 1.2
@@ -25,9 +27,12 @@ var score := 0
 var audio_blend := 0.0
 var tilt_duration:= 0.0
 
+var is_being_chased: bool = false
+
 @export var tilt_speed:= 7.0
 @export var tilt_amount := 0.4
 @export var audio_transition_speed := 5.0
+@export var music_transition_speed: float = 2.0
 
 ## METHODS
 func _ready() -> void:
@@ -38,6 +43,22 @@ func _ready() -> void:
 	
 	walk_audio.volume_db = 0.0
 	run_audio.volume_db = 0.0
+	
+	# Ambient audio play
+	ambient_audio.play()
+	chase_audio.play()
+	
+	# Setting up iniital volumes
+	ambient_audio.volume_db = 0.0
+	chase_audio.volume_db = -80.0
+
+func _process(delta: float) -> void:
+	if is_being_chased:
+		ambient_audio.volume_db = lerp(ambient_audio.volume_db, -80.0, delta * music_transition_speed)
+		chase_audio.volume_db = lerp(chase_audio.volume_db, 0.0, delta * music_transition_speed)
+	else:
+		ambient_audio.volume_db = lerp(ambient_audio.volume_db, 0.0, delta * music_transition_speed)
+		chase_audio.volume_db = lerp(chase_audio.volume_db, -80.0, delta * music_transition_speed)
 
 func inc_score():
 	score += 1

@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ct0xf05n1mqk3" path="res://Art/Textures/Cursor_HUD_Shellmaze-export.png" id="2_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://p8u5pf6s8bb7" path="res://Walking_player.mp3" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dj23dgmokckmv" path="res://Running_player.mp3" id="4_hqtel"]
+[ext_resource type="AudioStream" uid="uid://cedscxokiogj4" path="res://Underwater_ambience.mp3" id="5_sweqy"]
+[ext_resource type="AudioStream" uid="uid://uvv618fyov61" path="res://danger_approaching.mp3" id="6_2hs0m"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jiulq"]
 
@@ -119,5 +121,11 @@ stream = ExtResource("2_onrkg")
 
 [node name="RunAudio" type="AudioStreamPlayer3D" parent="." unique_id=1870391940]
 stream = ExtResource("4_hqtel")
+
+[node name="AmbientAudio" type="AudioStreamPlayer3D" parent="." unique_id=400134107]
+stream = ExtResource("5_sweqy")
+
+[node name="ChaseAudio" type="AudioStreamPlayer3D" parent="." unique_id=237845805]
+stream = ExtResource("6_2hs0m")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
