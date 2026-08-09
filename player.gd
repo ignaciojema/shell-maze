@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
+		$AudioStreamPlayer3D.play()
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * INERTIA_COEF)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * INERTIA_COEF)
 
