@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dpkug7fn3m4pt" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://p8u5pf6s8bb7" path="res://Walking_player.mp3" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dj23dgmokckmv" path="res://Running_player.mp3" id="4_hqtel"]
-[ext_resource type="Script" uid="uid://b8sf61ese2qoq" path="res://StaminaBar.gd" id="5_sweqy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jiulq"]
 
@@ -79,7 +78,6 @@ corner_radius_bottom_left = 2
 
 [node name="Player" type="CharacterBody3D" unique_id=2147040961 groups=["player"]]
 script = ExtResource("1_4flbx")
-total_shells = 112
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1915219083]
 
@@ -132,6 +130,5 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_sweqy")
 value = 100.0
 show_percentage = false
-script = ExtResource("5_sweqy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

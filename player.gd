@@ -14,7 +14,6 @@ const SPRINT_SPEED = 4.1
 const INERTIA_COEF = 7.0
 const SENSITIVITY = 0.003
 const MAX_STAMINA = 100.0
-const Shells_to_win := 15
 
 ## VARIABLES
 var score := 0
@@ -26,9 +25,8 @@ var depleting_speed := 10.0
 var recovering_speed := 10.0
 var audio_blend := 0.0
 var tilt_duration:= 0.0
-var victory_triggered := false
 
-@export var total_shells := 15
+@export var total_shells := 112
 @export var tilt_speed:= 7.0
 @export var tilt_amount := 0.4
 @export var audio_transition_speed := 5.0
@@ -52,7 +50,6 @@ func inc_score():
 	
 	if score >= total_shells:
 		win_game()
-
 
 
 

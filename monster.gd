@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var nav = $NavigationAgent3D
 @onready var idle_timer = $IdleTimer
+@onready var detected_audio: AudioStreamPlayer3D = $ChaseArea/DetectedAudio
 
 
 ## STATE MACHINE
@@ -130,3 +131,8 @@ func _on_idle_timer_timeout() -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		get_tree().change_scene_to_file("res://Scenes/DeathScreen.tscn")
+
+
+func _on_chase_area_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		detected_audio.play()

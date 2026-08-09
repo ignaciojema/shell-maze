@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tkn05ckdawet" path="res://Art/Meshes/SM_Crab.fbx" id="2_vr0w3"]
 [ext_resource type="PackedScene" uid="uid://du86ffvbypfdd" path="res://Art/Meshes/SM_Eyes.fbx" id="3_6tndq"]
 [ext_resource type="PackedScene" uid="uid://d4mimlm244bi2" path="res://Art/Meshes/SM_Shell.fbx" id="4_8ngjm"]
+[ext_resource type="AudioStream" uid="uid://djwdhooukglb6" path="res://SFX/threat_detection.mp3" id="5_6tndq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qrxph"]
 radius = 0.7
@@ -12,6 +13,9 @@ radius = 0.7
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jiulq"]
 radius = 0.75
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cxohp"]
+radius = 10.0
 
 [node name="monster" type="CharacterBody3D" unique_id=359188957 groups=["enemy"]]
 script = ExtResource("1_s3gyj")
@@ -40,11 +44,20 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0
 [node name="SM_Shell" parent="." unique_id=269198439 instance=ExtResource("4_8ngjm")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.003900528, 0.17365682, -0.12948948)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=971669300]
+[node name="DeathArea" type="Area3D" parent="." unique_id=971669300]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=295440533]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea" unique_id=295440533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_jiulq")
 
+[node name="ChaseArea" type="Area3D" parent="." unique_id=1942907651]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseArea" unique_id=101884481]
+shape = SubResource("SphereShape3D_cxohp")
+
+[node name="DetectedAudio" type="AudioStreamPlayer3D" parent="ChaseArea" unique_id=157014356]
+stream = ExtResource("5_6tndq")
+
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
