@@ -72,11 +72,11 @@ _data = {
 script = ExtResource("1_4flbx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1647590996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_jiulq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1310531596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_0xm2m")
 
 [node name="Head" type="Node3D" parent="." unique_id=1042936330]
@@ -86,7 +86,14 @@ root_node = NodePath("../../AudioStreamPlayer3D")
 libraries/ = SubResource("AnimationLibrary_i3pqv")
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1254559527]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4190902, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2455387, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=1826297822]
+light_color = Color(1.7808378e-06, 0.39919966, 0.55349916, 1)
+spot_range = 7.432
+spot_attenuation = 0.89
+spot_angle = 53.57
+spot_angle_attenuation = 0.93303293
 
 [node name="Timer" type="Timer" parent="." unique_id=1834303367]
 wait_time = 1.5
