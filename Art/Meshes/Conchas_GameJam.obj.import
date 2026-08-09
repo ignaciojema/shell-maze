@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://budad3ny0u85b"
+path="res://.godot/imported/Conchas_GameJam.obj-a1b43258b7e33ebc95f8886ea7b72b04.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Conchas_GameJam.obj-a1b43258b7e33ebc95f8886ea7b72b04.mesh"]
+
+source_file="res://Art/Meshes/Conchas_GameJam.obj"
+dest_files=["res://.godot/imported/Conchas_GameJam.obj-a1b43258b7e33ebc95f8886ea7b72b04.mesh", "res://.godot/imported/Conchas_GameJam.obj-a1b43258b7e33ebc95f8886ea7b72b04.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

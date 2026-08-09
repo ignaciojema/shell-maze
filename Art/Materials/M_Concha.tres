@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b7yhtvbm7m2rq"]
+
+[ext_resource type="Texture2D" uid="uid://8og6f02qi0mo" path="res://Art/Textures/T_Concha_BC.png" id="1_bsee2"]
+
+[resource]
+albedo_color = Color(8.580373, 8.672793, 8.242367, 1)
+albedo_texture = ExtResource("1_bsee2")
+emission = Color(0.641064, 0.46401757, 0.7545937, 1)
+texture_filter = 0
