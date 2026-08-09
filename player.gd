@@ -29,7 +29,7 @@ var tilt_duration:= 0.0
 ## METHODS
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	# Hide mouse
-
+	Engine.max_fps = 60
 
 func inc_score():
 	score += 1
