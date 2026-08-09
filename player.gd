@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var timer = $Timer
 @onready var walk_audio = $WalkAudio
 @onready var run_audio = $RunAudio
+@onready var stamina_bar = $ProgressBar
 
 ## CONSTANTS
 const WALK_SPEED = 1.2
@@ -111,6 +112,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * INERTIA_COEF)
 
 	stamina = clamp(stamina, 0, MAX_STAMINA)
+	stamina_bar.value = stamina
 
 	move_and_slide()
 

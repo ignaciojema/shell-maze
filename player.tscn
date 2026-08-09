@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ct0xf05n1mqk3" path="res://Art/Textures/Cursor_HUD_Shellmaze-export.png" id="2_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://p8u5pf6s8bb7" path="res://Walking_player.mp3" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dj23dgmokckmv" path="res://Running_player.mp3" id="4_hqtel"]
+[ext_resource type="Script" uid="uid://b8sf61ese2qoq" path="res://StaminaBar.gd" id="5_sweqy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jiulq"]
 
@@ -70,6 +71,13 @@ _data = {
 &"RESET": SubResource("Animation_i3pqv")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sweqy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Player" type="CharacterBody3D" unique_id=2147040961 groups=["player"]]
 script = ExtResource("1_4flbx")
 
@@ -119,5 +127,22 @@ stream = ExtResource("2_onrkg")
 
 [node name="RunAudio" type="AudioStreamPlayer3D" parent="." unique_id=1870391940]
 stream = ExtResource("4_hqtel")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1669001719]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -12.0
+offset_right = 82.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_sweqy")
+value = 100.0
+show_percentage = false
+script = ExtResource("5_sweqy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
