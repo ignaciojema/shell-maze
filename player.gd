@@ -112,8 +112,11 @@ func _physics_process(delta: float) -> void:
 	
 	# Check movement to reset timer
 	if input_dir != Vector2.ZERO:
-		timer.start()
-		can_regen = false
+		if is_sprinting: 
+			timer.start()
+			can_regen = false
+		else: 
+			can_regen = true
 
 	if direction:
 		tilt_duration += delta * tilt_speed
