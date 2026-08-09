@@ -54,11 +54,339 @@ render_target_update_mode = 4
 
 [node name="Particulas" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1445932683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4619355, 0.99777865, -20.18267)
-visible = false
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=318695029]
-transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -0.8059635, 0.09037101, -0.48937988)
-visible = false
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -0.8059635, -0.53806317, -0.48937988)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1994863745]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -13.8059635, -0.53806317, -0.48937988)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D17" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1781746766]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -28.805964, -0.53806317, -5.48938)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=79943903]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -13.8059635, -0.53806317, 11.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D13" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=346394958]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -10.8059635, -0.53806317, 16.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D4" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1787451376]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -27.805964, -0.53806317, 6.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D21" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1569133390]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -27.805964, -0.53806317, 36.62078)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D22" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=758344956]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -28.779066, -0.53806317, 62.92333)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D23" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1492626167]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -11.753073, -0.53806317, 41.788982)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D5" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=2016264277]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -22.805964, -0.53806317, 21.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D6" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=935047194]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -22.805964, -0.53806317, 43.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D9" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=765344974]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -21.805964, -0.53806317, 50.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D18" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1750124877]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -21.805964, -0.53806317, 58.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D10" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1288046182]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -17.805964, -0.53806317, 49.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D19" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1927816830]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -15.8059635, -0.53806317, 60.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D11" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1816082328]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -4.805963, -0.53806317, 59.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D12" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=678754520]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -8.8059635, -0.53806317, 52.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D7" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1279590415]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -10.8059635, -0.53806317, 37.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D20" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1166468777]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, 4.194037, -0.53806317, 39.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D14" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=1795134467]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -5.805963, -0.53806317, 20.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D15" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=672334702]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, 3.194037, -0.53806317, 30.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D16" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=2083004488]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, 2.194037, -0.53806317, 43.51062)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="CPUParticles3D8" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=896868035]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -12.8059635, -0.53806317, 34.51062)
 visibility_range_begin_margin = 10.0
 amount = 5
 lifetime = 1.5
