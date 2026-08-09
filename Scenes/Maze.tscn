@@ -975,6 +975,9 @@ environment = SubResource("Environment_1id2u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/WorldEnvironment" unique_id=2079511179]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 4.4752617, 0)
+light_color = Color(0.12941177, 0.3647059, 0.3647059, 1)
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 3.0
 shadow_enabled = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport" unique_id=1989417309]
