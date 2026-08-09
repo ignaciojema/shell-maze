@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://np7tbwk6sfh4"]
 
 [ext_resource type="Script" uid="uid://dpaytoq6p8d06" path="res://shell.gd" id="1_6fuaf"]
+[ext_resource type="Material" uid="uid://b7yhtvbm7m2rq" path="res://Art/Materials/M_Concha.tres" id="2_2e587"]
+[ext_resource type="ArrayMesh" uid="uid://budad3ny0u85b" path="res://Art/Meshes/Conchas_GameJam.obj" id="3_tw874"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_jiulq"]
 
@@ -10,9 +12,15 @@
 script = ExtResource("1_6fuaf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=418944145]
+visible = false
 mesh = SubResource("SphereMesh_jiulq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1114928742]
 shape = SubResource("SphereShape3D_qrxph")
+
+[node name="Conchas" type="MeshInstance3D" parent="." unique_id=574539905]
+transform = Transform3D(1.7699131, 0, 0, 0, 1.7699131, 0, 0, 0, 1, -0.0017588139, -0.48212028, -0.0061736107)
+material_override = ExtResource("2_2e587")
+mesh = ExtResource("3_tw874")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
