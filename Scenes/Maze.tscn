@@ -6,7 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="4_5lbnq"]
 [ext_resource type="PackedScene" uid="uid://conssb5xuoeb" path="res://Scenes/pause_menu.tscn" id="4_sww8e"]
 [ext_resource type="Script" uid="uid://rcxuyc7a1n7i" path="res://score.gd" id="5_5lbnq"]
-[ext_resource type="FontFile" uid="uid://oxvwrgxcuyyr" path="res://Fonts/CormorantGaramond-VariableFont_wght.ttf" id="5_g4w1m"]
+[ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="7_7yhxv"]
+[ext_resource type="Texture2D" uid="uid://7ccvyfv77cpy" path="res://Art/Textures/T_Shell_HUD.png" id="8_7yhxv"]
+[ext_resource type="Shader" uid="uid://cnld3o6wk58ab" path="res://Art/Materials/M_PSX_Shader.gdshader" id="9_14cn6"]
+[ext_resource type="PlaneMesh" uid="uid://dcfemrtoqlgyn" path="res://Art/VFX/VFX_Bubble.tres" id="10_rgewu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgewu"]
+shader = ExtResource("9_14cn6")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 32
+shader_parameter/dither_size = 2
+
+[sub_resource type="Gradient" id="Gradient_6ccfi"]
+offsets = PackedFloat32Array(0.7, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sww8e"]
 sky_top_color = Color(0.036284853, 0.12987337, 0.17838722, 1)
@@ -39,51 +54,87 @@ size = Vector3(73.760315, 0.17211914, 72.0155)
 [node name="Maze" type="Node3D" unique_id=772575423]
 script = ExtResource("1_7hfkg")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=813579019]
-environment = SubResource("Environment_7yhxv")
+[node name="ColorRect" parent="." unique_id=1033899391 instance=ExtResource("4_5lbnq")]
+visible = false
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=679682666]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 4.4752617, 0)
-shadow_enabled = true
-
-[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("2_yuvd5")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.647309, 0.84692407, -24.77821)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1486569182]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1141567, 3.4849844, 0)
-
-[node name="SM_Maze" parent="StaticBody3D" unique_id=1971317525 instance=ExtResource("1_v2hyu")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1868928615]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.269684, -2.6419678, 10.777283)
-shape = SubResource("BoxShape3D_5lbnq")
+[node name="Fade_Timer" type="Timer" parent="ColorRect" unique_id=924505652]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1183333938]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=154794305 instance=ExtResource("4_sww8e")]
 
-[node name="ColorRect" parent="CanvasLayer" unique_id=1033899391 instance=ExtResource("4_5lbnq")]
-visible = false
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1035593192]
+z_index = 1
+material = SubResource("ShaderMaterial_rgewu")
+offset_right = 661.0
+offset_bottom = 417.0
 
-[node name="Fade_Timer" type="Timer" parent="CanvasLayer/ColorRect" unique_id=924505652]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=259509805]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
 
-[node name="UserInterface" type="Control" parent="." unique_id=1865681212]
+[node name="Particulas" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1445932683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4619355, 0.99777865, -20.18267)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=318695029]
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -0.8059635, 0.09037101, -0.48937988)
+visibility_range_begin_margin = 10.0
+amount = 5
+lifetime = 1.5
+speed_scale = 0.5
+lifetime_randomness = 0.5
+fract_delta = false
+mesh = ExtResource("10_rgewu")
+gravity = Vector3(0, 0.9, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_6ccfi")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=813579019]
+environment = SubResource("Environment_7yhxv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/WorldEnvironment" unique_id=679682666]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 4.4752617, 0)
+shadow_enabled = true
+
+[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=2147040961 instance=ExtResource("2_yuvd5")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.647309, 0.84692407, -24.77821)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=1486569182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1141567, 3.4849844, 0)
+
+[node name="SM_Maze" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1971317525 instance=ExtResource("1_v2hyu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1868928615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.269684, -2.6419678, 10.777283)
+shape = SubResource("BoxShape3D_5lbnq")
+
+[node name="UserInterface" type="Control" parent="SubViewportContainer/SubViewport" unique_id=1865681212]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme = SubResource("Theme_g4w1m")
 
-[node name="Score" type="Label" parent="UserInterface" unique_id=1179980707]
+[node name="TShellHud" type="Sprite2D" parent="SubViewportContainer/SubViewport/UserInterface" unique_id=1938361049]
+texture_filter = 1
+position = Vector2(63, 59)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_7yhxv")
+
+[node name="Score" type="Label" parent="SubViewportContainer/SubViewport/UserInterface" unique_id=1179980707]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 33.0
-offset_right = 173.0
-offset_bottom = 73.0
+offset_left = 114.0
+offset_top = 38.0
+offset_right = 175.0
+offset_bottom = 90.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_g4w1m")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("7_7yhxv")
+theme_override_font_sizes/font_size = 64
 text = "0"
 script = ExtResource("5_5lbnq")
 
-[node name="ColorRect" parent="." unique_id=216520851 instance=ExtResource("4_5lbnq")]
+[node name="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=216520851 instance=ExtResource("4_5lbnq")]
+visible = false

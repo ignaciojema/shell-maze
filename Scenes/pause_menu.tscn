@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6qepngodis7v" path="res://scripts/pause_menu.gd" id="1_1och7"]
 [ext_resource type="Shader" uid="uid://cqj2xbhkl4dsa" path="res://Art/Materials/M_Blur.gdshader" id="1_k0w1u"]
-[ext_resource type="FontFile" uid="uid://oxvwrgxcuyyr" path="res://Fonts/CormorantGaramond-VariableFont_wght.ttf" id="2_1och7"]
+[ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="3_bpi0q"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="4_bpi0q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ty0te"]
@@ -96,10 +96,10 @@ anchor_left = 0.49100003
 anchor_top = 0.512
 anchor_right = 0.49100003
 anchor_bottom = 0.512
-offset_left = -565.632
-offset_top = -331.776
-offset_right = 586.368
-offset_bottom = 316.224
+offset_left = -1157.5182
+offset_top = -664.712
+offset_right = 1178.2543
+offset_bottom = 649.16
 pivot_offset = Vector2(80, 80)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1964573561]
@@ -110,21 +110,21 @@ alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1760243515]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_fonts/font = ExtResource("3_bpi0q")
 theme_override_font_sizes/font_size = 32
 text = "Resume"
 flat = true
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1780611317]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_fonts/font = ExtResource("3_bpi0q")
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 flat = true
 
 [node name="MainMenu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=998864086]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_fonts/font = ExtResource("3_bpi0q")
 theme_override_font_sizes/font_size = 32
 text = "Main menu"
 flat = true

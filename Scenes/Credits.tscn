@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyyk8wndhn8kg"]
 
 [ext_resource type="Script" uid="uid://ho740yncbjk6" path="res://scripts/Main_credits.gd" id="1_7xmno"]
-[ext_resource type="FontFile" uid="uid://oxvwrgxcuyyr" path="res://Fonts/CormorantGaramond-VariableFont_wght.ttf" id="1_i8h6y"]
+[ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="2_7xmno"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_7xmno"]
 
 [node name="Node2D" type="Node2D" unique_id=1903017911]
@@ -24,8 +24,8 @@ offset_left = 47.0
 offset_top = 588.0
 offset_right = 100.0
 offset_bottom = 626.0
-theme_override_fonts/font = ExtResource("1_i8h6y")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_7xmno")
+theme_override_font_sizes/font_size = 32
 text = "Back"
 flat = true
 
@@ -39,7 +39,7 @@ offset_left = 318.0
 offset_top = 53.0
 offset_right = 818.1362
 offset_bottom = 504.0
-theme_override_fonts/font = ExtResource("1_i8h6y")
+theme_override_fonts/font = ExtResource("2_7xmno")
 theme_override_font_sizes/font_size = 32
 text = "							 Credits:
 Textures: Juan Diego Huiza
@@ -49,8 +49,10 @@ SFX & Music: Rodrigo & Ignacio
 Post Process & VFX: Juan Diego Huiza
 Mechanics Programming: Ignacio
 Design: Rodrigo
+Pixel Art Font: reffpixels.itch.io
 
-In loving memory of Nico 2015-2026"
+In loving memory of Nico
+Dec 2015 - Aug 2026"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -58,5 +60,5 @@ vertical_alignment = 1
 visible = false
 
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
-[connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_credits_timeout"]
 [connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_credits_timeout"]
