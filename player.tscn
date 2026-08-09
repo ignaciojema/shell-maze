@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dlm0is3808goy"]
 
 [ext_resource type="Script" uid="uid://dpkug7fn3m4pt" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://ct0xf05n1mqk3" path="res://Art/Textures/Cursor_HUD_Shellmaze-export.png" id="2_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://p8u5pf6s8bb7" path="res://Walking_player.mp3" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dj23dgmokckmv" path="res://Running_player.mp3" id="4_hqtel"]
 [ext_resource type="Script" uid="uid://b8sf61ese2qoq" path="res://StaminaBar.gd" id="5_sweqy"]
@@ -83,17 +82,6 @@ script = ExtResource("1_4flbx")
 total_shells = 112
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1915219083]
-
-[node name="CenterContainer" type="CenterContainer" parent="HUD" unique_id=956468204]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="HUD/CenterContainer" unique_id=1702765627]
-layout_mode = 2
-texture = ExtResource("2_i3pqv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1647590996]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
