@@ -80,7 +80,7 @@ corner_radius_bottom_left = 2
 
 [node name="Player" type="CharacterBody3D" unique_id=2147040961 groups=["player"]]
 script = ExtResource("1_4flbx")
-total_shells = 17
+total_shells = 112
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1915219083]
 
