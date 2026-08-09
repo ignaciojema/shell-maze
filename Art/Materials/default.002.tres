@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://4gyhotgcww5q"]
+
+[ext_resource type="Texture2D" uid="uid://dmi0dkqgo1gta" path="res://Art/Textures/T_CrabEyes_BC.jpg" id="1_28am6"]
+
+[resource]
+resource_name = "default.002"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.735357, 0.735357, 0.735357, 1)
+albedo_texture = ExtResource("1_28am6")
+emission_enabled = true
+texture_filter = 0
