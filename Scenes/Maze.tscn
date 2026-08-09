@@ -78,7 +78,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4619355, 0.99777865, -20.18267)
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=318695029]
-transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -1.8382125, 0.09037101, -0.48937988)
+transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -0.8059635, 0.09037101, -0.48937988)
 visibility_range_begin_margin = 10.0
 amount = 5
 lifetime = 1.5
