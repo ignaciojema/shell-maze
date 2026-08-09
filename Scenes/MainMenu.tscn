@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://dyg2rp3ygwjb3"]
 
-[ext_resource type="Script" uid="uid://dejf4gd8mmj7b" path="res://scripts/main_menu.gd" id="1_853f1"]
-[ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="2_8saeu"]
+[ext_resource type="Script" uid="uid://dejf4gd8mmj7b" path="res://Scenes/main_menu.gd" id="1_853f1"]
+[ext_resource type="FontFile" uid="uid://oxvwrgxcuyyr" path="res://Fonts/CormorantGaramond-VariableFont_wght.ttf" id="1_tt5f1"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_8saeu"]
 
 [node name="MainMenu" type="Node2D" unique_id=1502908382]
 script = ExtResource("1_853f1")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1586576045]
-offset_right = 651.0
-offset_bottom = 390.0
+offset_right = 1159.0
+offset_bottom = 656.0
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1054638052]
-offset_top = 205.0
-offset_right = 640.0
-offset_bottom = 360.6579
+offset_top = 432.1184
+offset_right = 1152.0
+offset_bottom = 587.7763
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1927840110]
 layout_mode = 2
@@ -23,22 +23,22 @@ size_flags_stretch_ratio = 6.8
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1471795612]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8saeu")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 24
 text = "Start"
 flat = true
 
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer" unique_id=414702328]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8saeu")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 24
 text = "Credits"
 flat = true
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1574582998]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8saeu")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 24
 text = "Quit"
 flat = true
 
@@ -48,7 +48,6 @@ visible = false
 [node name="Fade_Timer" type="Timer" parent="ColorRect" unique_id=100525921]
 
 [node name="FadeOut" parent="." unique_id=1317724659 instance=ExtResource("3_8saeu")]
-visible = false
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

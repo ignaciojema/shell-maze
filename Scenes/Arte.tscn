@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://drj7nr0w46ly7"]
 
-[ext_resource type="Script" uid="uid://b8dssa71m5rmf" path="res://scripts/arte.gd" id="1_4htgj"]
+[ext_resource type="Script" uid="uid://b8dssa71m5rmf" path="res://Scenes/arte.gd" id="1_4htgj"]
 [ext_resource type="ArrayMesh" uid="uid://e4bh0ey8y6ge" path="res://Art/Meshes/SM_Scenary.obj" id="1_ttm2t"]
-[ext_resource type="Texture2D" uid="uid://cppkgehf2ycx0" path="res://Art/Textures/T_Wall1_BC.jpg" id="4_4htgj"]
-[ext_resource type="Texture2D" uid="uid://q3qewf45o0ig" path="res://Art/Textures/T_Floor_BC.jpg" id="5_7r0mf"]
-[ext_resource type="Texture2D" uid="uid://7wwogy7t776w" path="res://Art/Textures/T_Ceiling_BC.jpg" id="6_srlmr"]
-[ext_resource type="Texture2D" uid="uid://crr1axcpcouyk" path="res://Art/Textures/T_Wall2_BC.jpg" id="7_oij84"]
+[ext_resource type="Material" uid="uid://l3t0lsc3sux0" path="res://Art/Materials/M_Wall_1.tres" id="2_8yj8b"]
+[ext_resource type="Material" uid="uid://b3hujcb3i2be1" path="res://Art/Materials/M_Floor.tres" id="3_4fxng"]
+[ext_resource type="Material" uid="uid://drn5e7d7rjhpy" path="res://Art/Materials/M_Ceiling.tres" id="4_wighl"]
+[ext_resource type="Material" uid="uid://cm67na3ftw6s5" path="res://Art/Materials/M_Wall_2.tres" id="5_6y0sn"]
+[ext_resource type="Material" uid="uid://rut2ti0wdbgh" path="res://Art/Materials/M_Wall_3.tres" id="6_4htgj"]
+[ext_resource type="Material" uid="uid://csx1u6iah7nj3" path="res://Art/Materials/M_Wall_4.tres" id="7_7r0mf"]
 [ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="8_4fxng"]
-[ext_resource type="Texture2D" uid="uid://cmqhufxtjm4kk" path="res://Art/Textures/T_Wall3_BC.jpg" id="8_g5cil"]
-[ext_resource type="Texture2D" uid="uid://b7wjscww0yrhv" path="res://Art/Textures/T_Wall4_BC.jpg" id="9_tv7aq"]
 [ext_resource type="PlaneMesh" uid="uid://dcfemrtoqlgyn" path="res://Art/VFX/VFX_Bubble.tres" id="9_wighl"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="11_7r0mf"]
 
@@ -23,46 +23,22 @@ sky_horizon_color = Color(0.0077188383, 0.017091509, 0.10116596, 1)
 ground_bottom_color = Color(0.015336384, 0.024466665, 0.086200826, 1)
 ground_horizon_color = Color(0.03306915, 0.056723684, 0.18566674, 1)
 
-[sub_resource type="Sky" id="Sky_4htgj"]
+[sub_resource type="Sky" id="Sky_wighl"]
 sky_material = SubResource("ProceduralSkyMaterial_4fxng")
 
 [sub_resource type="Environment" id="Environment_6y0sn"]
 background_mode = 2
-sky = SubResource("Sky_4htgj")
+sky = SubResource("Sky_wighl")
 tonemap_mode = 3
-tonemap_exposure = 5.0
+tonemap_exposure = 6.5
 sdfgi_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.034554485, 0.10474209, 0.21510369, 1)
-fog_light_energy = 0.2
+fog_light_color = Color(0.0106114345, 0.04530935, 0.11823455, 1)
+fog_light_energy = 0.25
 fog_density = 0.2669
 adjustment_enabled = true
 adjustment_brightness = 0.84
 adjustment_saturation = 1.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekhc4"]
-albedo_texture = ExtResource("4_4htgj")
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lepg"]
-albedo_texture = ExtResource("5_7r0mf")
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnilh"]
-albedo_texture = ExtResource("6_srlmr")
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bi5et"]
-albedo_texture = ExtResource("7_oij84")
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uygs"]
-albedo_texture = ExtResource("8_g5cil")
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kf44"]
-albedo_texture = ExtResource("9_tv7aq")
-texture_filter = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ty0te"]
 size = Vector3(9.9366455, 0.6326904, 7.543701)
@@ -100,17 +76,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9075475, -0.02888453, 0.027
 
 [node name="SM_Scenary" type="MeshInstance3D" parent="StaticBody3D" unique_id=1034369638]
 mesh = ExtResource("1_ttm2t")
-surface_material_override/0 = SubResource("StandardMaterial3D_ekhc4")
-surface_material_override/1 = SubResource("StandardMaterial3D_7lepg")
-surface_material_override/2 = SubResource("StandardMaterial3D_wnilh")
-surface_material_override/3 = SubResource("StandardMaterial3D_bi5et")
-surface_material_override/4 = SubResource("StandardMaterial3D_6uygs")
-surface_material_override/5 = SubResource("StandardMaterial3D_2kf44")
-surface_material_override/6 = SubResource("StandardMaterial3D_7lepg")
-surface_material_override/7 = SubResource("StandardMaterial3D_ekhc4")
-surface_material_override/8 = SubResource("StandardMaterial3D_bi5et")
-surface_material_override/9 = SubResource("StandardMaterial3D_6uygs")
-surface_material_override/10 = SubResource("StandardMaterial3D_wnilh")
+surface_material_override/0 = ExtResource("2_8yj8b")
+surface_material_override/1 = ExtResource("3_4fxng")
+surface_material_override/2 = ExtResource("4_wighl")
+surface_material_override/3 = ExtResource("5_6y0sn")
+surface_material_override/4 = ExtResource("6_4htgj")
+surface_material_override/5 = ExtResource("7_7r0mf")
+surface_material_override/6 = ExtResource("3_4fxng")
+surface_material_override/7 = ExtResource("2_8yj8b")
+surface_material_override/8 = ExtResource("5_6y0sn")
+surface_material_override/9 = ExtResource("6_4htgj")
+surface_material_override/10 = ExtResource("4_wighl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1716981929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9379272, -0.18365479, -0.68444824)

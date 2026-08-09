@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b3hujcb3i2be1"]
+
+[ext_resource type="Texture2D" uid="uid://q3qewf45o0ig" path="res://Art/Textures/T_Floor_BC.jpg" id="1_oolqh"]
+
+[resource]
+albedo_texture = ExtResource("1_oolqh")
+texture_filter = 2
