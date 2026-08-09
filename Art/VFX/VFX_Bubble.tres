@@ -4,5 +4,5 @@
 
 [resource]
 material = ExtResource("1_up18w")
-size = Vector2(0.25, 0.25)
+size = Vector3(0.25, 0.25)
 orientation = 0
