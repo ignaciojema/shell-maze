@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c04rp2m2payjj"]
+
+[ext_resource type="PackedScene" uid="uid://c4eitmo3k0dmy" path="res://Art/Meshes/FM_Maze.fbx" id="1_v2hyu"]
+[ext_resource type="PackedScene" uid="uid://dlm0is3808goy" path="res://player.tscn" id="2_yuvd5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5lbnq"]
+
+[node name="Maze" type="Node3D" unique_id=772575423]
+
+[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("2_yuvd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.07566, 1.7185867, 4.997761)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1486569182]
+
+[node name="FM_Maze" parent="StaticBody3D" unique_id=1971317525 instance=ExtResource("1_v2hyu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1868928615]
+shape = SubResource("BoxShape3D_5lbnq")
