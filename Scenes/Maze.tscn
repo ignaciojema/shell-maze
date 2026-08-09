@@ -523,7 +523,7 @@ color_ramp = SubResource("Gradient_6ccfi")
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=2147040961 instance=ExtResource("2_yuvd5")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.647309, 0.84692407, -24.77821)
-total_shells = 17
+total_shells = 112
 
 [node name="monster" parent="SubViewportContainer/SubViewport" unique_id=359188957 instance=ExtResource("7_32p0j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.36699, 0, 40.171017)
