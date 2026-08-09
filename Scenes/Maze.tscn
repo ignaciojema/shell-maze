@@ -18,57 +18,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -2.533152, -2.6380603, 
 
 [node name="FM_Maze" parent="StaticBody3D" unique_id=1971317525 instance=ExtResource("1_v2hyu")]
 
-<<<<<<< HEAD
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1868928615]
-=======
-[node name="PauseMenu" parent="CanvasLayer" unique_id=154794305 instance=ExtResource("4_sww8e")]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1035593192]
-z_index = 1
-material = SubResource("ShaderMaterial_rgewu")
-offset_right = 661.0
-offset_bottom = 417.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=259509805]
-handle_input_locally = false
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
-
-[node name="Particulas" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1445932683]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4619355, 0.99777865, -20.18267)
-
-[node name="CPUParticles3D" type="CPUParticles3D" parent="SubViewportContainer/SubViewport/Particulas" unique_id=318695029]
-transform = Transform3D(0.6017728, 0, -0.7986674, 0, 1, 0, 0.7986674, 0, 0.6017728, -1.8382125, 0.09037101, -0.48937988)
-visibility_range_begin_margin = 10.0
-amount = 5
-lifetime = 1.5
-speed_scale = 0.5
-lifetime_randomness = 0.5
-fract_delta = false
-mesh = ExtResource("10_rgewu")
-gravity = Vector3(0, 0.9, 0)
-initial_velocity_min = 0.1
-initial_velocity_max = 0.3
-scale_amount_min = 0.0
-color_ramp = SubResource("Gradient_6ccfi")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=813579019]
-environment = SubResource("Environment_7yhxv")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/WorldEnvironment" unique_id=679682666]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 4.4752617, 0)
-shadow_enabled = true
-
-[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=2147040961 instance=ExtResource("2_yuvd5")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.647309, 0.84692407, -24.77821)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=1486569182]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1141567, 3.4849844, 0)
-
-[node name="SM_Maze" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1971317525 instance=ExtResource("1_v2hyu")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1868928615]
->>>>>>> MenuPausa
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.269684, -2.6419678, 10.777283)
 shape = SubResource("BoxShape3D_5lbnq")
 
