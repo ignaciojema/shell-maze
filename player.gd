@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 ## CONSTANTS
 const WALK_SPEED = 1.2
-const SPRINT_SPEED = 15.0
+const SPRINT_SPEED = 4.1
 const INERTIA_COEF = 7.0
 const SENSITIVITY = 0.003
 const MAX_STAMINA = 100.0
@@ -21,8 +21,10 @@ var depleting_speed := 10.0
 var recovering_speed := 10.0
 var score := 0
 
-func _readyCamAnim() -> void:
-	$Head/AnimationPlayer.play("Headtilt")
+var tilt_duration:= 0.0
+
+@export var tilt_speed:= 7.0
+@export var tilt_amount := 0.4
 
 ## METHODS
 func _ready() -> void:
@@ -68,13 +70,14 @@ func _physics_process(delta: float) -> void:
 		can_regen = false
 
 	if direction:
-		if $Head/AnimationPlayer.speed_scale != 1.0:
-			$Head/AnimationPlayer.speed_scale = 1.0
+		tilt_duration += delta * tilt_speed
+		
+		camera.rotation_degrees.z = sin(tilt_duration) * tilt_amount
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
-		if $Head/AnimationPlayer.speed_scale != 0.0:
-			$Head/AnimationPlayer.speed_scale = 0.0
+		tilt_duration = 0.0 
+		camera.rotation.z = lerp(camera.rotation.z, 0.0, delta * tilt_speed)
 		$AudioStreamPlayer3D.play()
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * INERTIA_COEF)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * INERTIA_COEF)

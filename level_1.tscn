@@ -60,8 +60,6 @@ debug_color = Color(0.43813464, 0.48182738, 0.92762905, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_jiulq")
 
-[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("1_hn12h")]
-
 [node name="Shell" parent="." unique_id=1669908532 instance=ExtResource("2_ihfcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
@@ -95,3 +93,6 @@ offset_bottom = 81.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Score: 0"
 script = ExtResource("3_rka8t")
+
+[node name="Player" parent="." unique_id=2147040961 instance=ExtResource("1_hn12h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2262337, 2.3841858e-07, 0.32091475)

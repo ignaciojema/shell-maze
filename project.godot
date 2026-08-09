@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="shell-maze"
-run/main_scene="uid://dlm0is3808goy"
+run/main_scene="uid://bc0i36gjfa62t"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
