@@ -21,6 +21,9 @@ var depleting_speed := 10.0
 var recovering_speed := 10.0
 var score := 0
 
+func _readyCamAnim() -> void:
+	$Head/AnimationPlayer.play("Headtilt")
+
 ## METHODS
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	# Hide mouse
@@ -65,9 +68,13 @@ func _physics_process(delta: float) -> void:
 		can_regen = false
 
 	if direction:
+		if $Head/AnimationPlayer.speed_scale != 1.0:
+			$Head/AnimationPlayer.speed_scale = 1.0
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
+		if $Head/AnimationPlayer.speed_scale != 0.0:
+			$Head/AnimationPlayer.speed_scale = 0.0
 		$AudioStreamPlayer3D.play()
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * INERTIA_COEF)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * INERTIA_COEF)
