@@ -14,6 +14,7 @@ const SPRINT_SPEED = 4.1
 const INERTIA_COEF = 7.0
 const SENSITIVITY = 0.003
 const MAX_STAMINA = 100.0
+const Shells_to_win := 15
 
 ## VARIABLES
 var alive := true
@@ -25,6 +26,7 @@ var recovering_speed := 10.0
 var score := 0
 var audio_blend := 0.0
 var tilt_duration:= 0.0
+var victory_triggered := false
 
 @export var tilt_speed:= 7.0
 @export var tilt_amount := 0.4
@@ -42,6 +44,12 @@ func _ready() -> void:
 
 func inc_score():
 	score += 1
+	if victory_triggered:
+		return
+	print("Shells: ", score, "/", Shells_to_win)
+	if score >= Shells_to_win:
+		victory_triggered
+
 
 
 # Handle camera rotation
