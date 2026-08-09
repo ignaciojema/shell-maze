@@ -8,8 +8,8 @@
 script = ExtResource("1_7xmno")
 
 [node name="Background" type="ColorRect" parent="." unique_id=430853429]
-offset_right = 1164.0
-offset_bottom = 668.0
+offset_right = 679.0
+offset_bottom = 413.0
 color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" parent="." unique_id=648251119]
@@ -21,11 +21,11 @@ offset_bottom = 40.0
 [node name="Back" type="Button" parent="Control" unique_id=2078538607]
 layout_mode = 0
 offset_left = 47.0
-offset_top = 588.0
-offset_right = 100.0
-offset_bottom = 626.0
+offset_top = 317.0
+offset_right = 119.0
+offset_bottom = 355.0
 theme_override_fonts/font = ExtResource("2_7xmno")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = "Back"
 flat = true
 
@@ -35,12 +35,12 @@ visible = false
 [node name="Fade_Timer" type="Timer" parent="ColorRect" unique_id=1150246165]
 
 [node name="Label" type="Label" parent="." unique_id=2142846660]
-offset_left = 318.0
-offset_top = 53.0
-offset_right = 818.1362
-offset_bottom = 504.0
+offset_left = 79.0
+offset_top = 39.0
+offset_right = 583.0
+offset_bottom = 297.0
 theme_override_fonts/font = ExtResource("2_7xmno")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = "							 Credits:
 Textures: Juan Diego Huiza
 3D Models: Laura Cavanillas
@@ -60,5 +60,5 @@ vertical_alignment = 1
 visible = false
 
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
-[connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_credits_timeout"]
+[connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_timeout"]
