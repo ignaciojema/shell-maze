@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dyyk8wndhn8kg"]
+
+[ext_resource type="Script" uid="uid://ho740yncbjk6" path="res://Scenes/Main_credits.gd" id="1_7xmno"]
+[ext_resource type="FontFile" uid="uid://oxvwrgxcuyyr" path="res://Fonts/CormorantGaramond-VariableFont_wght.ttf" id="1_i8h6y"]
+[ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_7xmno"]
+
+[node name="Node2D" type="Node2D" unique_id=1903017911]
+script = ExtResource("1_7xmno")
+
+[node name="Background" type="ColorRect" parent="." unique_id=430853429]
+offset_right = 1164.0
+offset_bottom = 668.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="." unique_id=648251119]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="Control" unique_id=2078538607]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 588.0
+offset_right = 100.0
+offset_bottom = 626.0
+theme_override_fonts/font = ExtResource("1_i8h6y")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+flat = true
+
+[node name="ColorRect" parent="." unique_id=1033899391 instance=ExtResource("3_7xmno")]
+visible = false
+
+[node name="Fade_Timer" type="Timer" parent="ColorRect" unique_id=1150246165]
+
+[node name="Label" type="Label" parent="." unique_id=2142846660]
+offset_left = 318.0
+offset_top = 53.0
+offset_right = 818.1362
+offset_bottom = 504.0
+theme_override_fonts/font = ExtResource("1_i8h6y")
+theme_override_font_sizes/font_size = 32
+text = "							 Credits:
+Textures: Juan Diego Huiza
+3D Models: Laura Cavanillas
+Animations
+SFX & Music: Rodrigo & Ignacio
+Post Process & VFX: Juan Diego Huiza
+Mechanics Programming: Ignacio
+Design: Rodrigo
+
+In loving memory of Nico 201x-2026"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeOut" parent="." unique_id=1017979683 instance=ExtResource("3_7xmno")]
+
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_credits_timeout"]
+[connection signal="timeout" from="ColorRect/Fade_Timer" to="." method="_on_fade_timer_timeout"]
