@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdq06o5qbwwuw"]
 
-[ext_resource type="Script" uid="uid://b4hcictkx3tys" path="res://Scenes/death_screen.gd" id="1_n2kst"]
+[ext_resource type="Script" uid="uid://b4hcictkx3tys" path="res://scripts/death_screen.gd" id="1_n2kst"]
 [ext_resource type="FontFile" uid="uid://f2dmla0iue2n" path="res://Fonts/PixelSerif_16px_v02.otf" id="2_n2kst"]
 [ext_resource type="PackedScene" uid="uid://d1x5hghx5owwg" path="res://Art/Anim/Fake_Transition.tscn" id="3_phjal"]
 [ext_resource type="AudioStream" uid="uid://ddxcd3gg86pqq" path="res://SFX/spooky_sound.mp3" id="4_n2kst"]
