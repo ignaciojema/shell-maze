@@ -18,9 +18,9 @@ background_mode = 2
 sky = SubResource("Sky_0xm2m")
 glow_enabled = true
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_jiulq"]
-vertices = PackedVector3Array(-29.5, 0.5, -29.5, -29.5, 0.5, 29.5, 29.5, 0.5, 29.5, 29.5, 0.5, -29.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+[sub_resource type="NavigationMesh" id="NavigationMesh_qrxph"]
+vertices = PackedVector3Array(-2.75, 0.5, -15, -0.75, 0.5, -15, -0.75, 0.5, -29.5, -3, 0.5, -13.75, -29.5, 0.5, -29.5, -29.5, 0.5, -13.75, 4, 0.5, -15, 4, 0.5, -29.5, 6, 0.5, -15, 6.25, 0.5, -14, 29.5, 0.5, -14, 29.5, 0.5, -29.5, 5.75, 0.5, -12.75, 4.5, 0.5, 29.5, 29.5, 0.5, 29.5, 4.25, 0.5, -12.75, -2.75, 0.5, -12.75, -29.5, 0.5, 29.5, -1.5, 0.5, 29.5, -1.25, 0.5, -12.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 5), PackedInt32Array(2, 5, 4), PackedInt32Array(2, 7, 1), PackedInt32Array(1, 7, 6), PackedInt32Array(8, 6, 7), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(10, 7, 11), PackedInt32Array(9, 10, 12), PackedInt32Array(12, 10, 14), PackedInt32Array(12, 14, 13), PackedInt32Array(13, 15, 12), PackedInt32Array(3, 16, 5), PackedInt32Array(5, 16, 17), PackedInt32Array(17, 16, 18), PackedInt32Array(16, 19, 18), PackedInt32Array(19, 15, 18), PackedInt32Array(18, 15, 13)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jiulq"]
 size = Vector3(60, 2, 60)
@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.4999
 shadow_enabled = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=216919854]
-navigation_mesh = SubResource("NavigationMesh_jiulq")
+navigation_mesh = SubResource("NavigationMesh_qrxph")
 
 [node name="Ground" type="StaticBody3D" parent="NavigationRegion3D" unique_id=2098486934]
 
@@ -60,22 +60,22 @@ debug_color = Color(0.43813464, 0.48182738, 0.92762905, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_jiulq")
 
+[node name="Obstaculo" type="RigidBody3D" parent="NavigationRegion3D/Ground" unique_id=1610819186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/Obstaculo" unique_id=1092026169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -17)
+shape = SubResource("BoxShape3D_qrxph")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground/Obstaculo" unique_id=1980456318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -17)
+mesh = SubResource("BoxMesh_cxohp")
+
 [node name="Shell" parent="." unique_id=1669908532 instance=ExtResource("2_ihfcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
 [node name="monster" parent="." unique_id=1367917072 instance=ExtResource("3_ihfcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19)
-
-[node name="Obstaculo" type="RigidBody3D" parent="." unique_id=1610819186]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstaculo" unique_id=1092026169]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -17)
-shape = SubResource("BoxShape3D_qrxph")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Obstaculo" unique_id=1980456318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -17)
-mesh = SubResource("BoxMesh_cxohp")
 
 [node name="UserInterface" type="Control" parent="." unique_id=1355068312]
 layout_mode = 3
