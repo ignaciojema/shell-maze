@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://drn5e7d7rjhpy"]
 
-[ext_resource type="Texture2D" uid="uid://7wwogy7t776w" path="res://Art/textures/T_Ceiling_BC.jpg" id="1_0r41d"]
+[ext_resource type="Texture2D" uid="uid://7wwogy7t776w" path="res://Art/Textures/T_Ceiling_BC.jpg" id="1_0r41d"]
 
 [resource]
 resource_name = "ceiling"
