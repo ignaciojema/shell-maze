@@ -36,17 +36,19 @@ visible = false
 [node name="Fade_Timer" type="Timer" parent="ColorRect" unique_id=1150246165]
 
 [node name="Label" type="Label" parent="." unique_id=2142846660]
-offset_left = 79.0
-offset_top = 39.0
-offset_right = 583.0
-offset_bottom = 297.0
+offset_left = 73.0
+offset_top = 37.0
+offset_right = 577.0
+offset_bottom = 295.0
 theme_override_fonts/font = ExtResource("2_7xmno")
 theme_override_font_sizes/font_size = 16
 text = "							 Credits:
 Textures: Juan Diego Huiza
 3D Models: Laura Cavanillas
 Animations
-SFX & Music: Rodrigo & Ignacio
+All the sfx in the project, have been taken 
+from Pixabay under their royalty-free license
+
 Post Process & VFX: Juan Diego Huiza
 Mechanics Programming: Ignacio
 Design: Rodrigo
