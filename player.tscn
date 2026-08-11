@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dpkug7fn3m4pt" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://bjhoubj0txfe8" path="res://SFX/Betterfootsteps.mp3" id="2_hqtel"]
 [ext_resource type="AudioStream" uid="uid://dy1sequw3c2er" path="res://SFX/Swimming_run.wav" id="3_hqtel"]
-[ext_resource type="Script" uid="uid://b8sf61ese2qoq" path="res://StaminaBar.gd" id="5_sweqy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jiulq"]
 
@@ -113,7 +112,8 @@ autostart = true
 
 [node name="WalkAudio" type="AudioStreamPlayer3D" parent="." unique_id=1743206365]
 stream = ExtResource("2_hqtel")
-volume_db = -10.0
+volume_db = -12.0
+max_db = 1.0
 
 [node name="RunAudio" type="AudioStreamPlayer3D" parent="." unique_id=1870391940]
 stream = ExtResource("3_hqtel")

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bscvty471y32x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4fxng"]
+sky_top_color = Color(0.036284853, 0.12987337, 0.17838722, 1)
+sky_horizon_color = Color(0.0077188383, 0.017091509, 0.10116596, 1)
+ground_bottom_color = Color(0.015336384, 0.024466665, 0.086200826, 1)
+ground_horizon_color = Color(0.03306915, 0.056723684, 0.18566674, 1)
+
+[sub_resource type="Sky" id="Sky_4htgj"]
+sky_material = SubResource("ProceduralSkyMaterial_4fxng")
+
+[sub_resource type="Environment" id="Environment_6y0sn"]
+background_mode = 2
+sky = SubResource("Sky_4htgj")
+tonemap_mode = 3
+tonemap_exposure = 8.0
+sdfgi_enabled = true
+glow_enabled = true
+glow_blend_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.034554485, 0.10474209, 0.21510369, 1)
+fog_light_energy = 0.2
+fog_density = 0.2669
+adjustment_enabled = true
+adjustment_brightness = 0.84
+adjustment_saturation = 1.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=974081445]
+environment = SubResource("Environment_6y0sn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1813586304]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 4.4752617, 0)
+visible = false
+shadow_enabled = true
